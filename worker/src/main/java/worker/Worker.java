@@ -45,6 +45,8 @@ class Worker {
     }
   }
 
+  // More information about Jedis, constructor and authentication to Redis:
+  // https://tool.oschina.net/uploads/apidocs/jedis-2.1.0/redis/clients/jedis/Jedis.html#Jedis(java.lang.String)
   static Jedis connectToRedis(String host, String password) {
     Jedis conn = new Jedis(host);
     conn.auth(password);
