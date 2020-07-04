@@ -49,25 +49,28 @@ async.retry(
 
 function getVotes(client) {
   //todo: This line throws: 'Error performing query: error: relation "votes" does not exist'
+  console.log("Querying database...");
   client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
+      console.log("Querying database successful, formatting result...");
       var votes = collectVotesFromResult(result);
+      console.log("Emiting score...");
       io.sockets.emit("scores", JSON.stringify(votes));
     }
-
     setTimeout(function() {getVotes(client) }, 1000);
   });
 }
 
 function collectVotesFromResult(result) {
   var votes = {a: 0, b: 0};
-
+  var count = 0;
   result.rows.forEach(function (row) {
+    count++;
     votes[row.vote] = parseInt(row.count);
-  });
-
+  });  
+  console.log(count.toString() + " results formattet successfully.");
   return votes;
 }
 
