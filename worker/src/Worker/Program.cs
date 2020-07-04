@@ -77,19 +77,21 @@ namespace Worker
                     connection.Open();
                     break;
                 }
-                catch (SocketException)
+                catch (SocketException ex)
                 {
                     Console.Error.WriteLine("Waiting for db");
+                    Console.Error.WriteLine("Error Message: " + ex.ToString());
                     Thread.Sleep(1000);
                 }
-                catch (DbException)
+                catch (DbException ex)
                 {
                     Console.Error.WriteLine("Waiting for db");
+                    Console.Error.WriteLine("Error Message: " + ex.ToString());
                     Thread.Sleep(1000);
                 }
             }
 
-            Console.Error.WriteLine("Connected to db");
+            Console.WriteLine("Connected to db");
 
             var command = connection.CreateCommand();
             command.CommandText = @"CREATE TABLE IF NOT EXISTS votes (
@@ -114,9 +116,10 @@ namespace Worker
                     Console.Error.WriteLine("Connecting to redis");
                     return ConnectionMultiplexer.Connect(ipAddress + ",password=redis_password");
                 }
-                catch (RedisConnectionException)
+                catch (RedisConnectionException ex)
                 {
                     Console.Error.WriteLine("Waiting for redis");
+                    Console.Error.WriteLine("Error Message: " + ex.ToString());
                     Thread.Sleep(1000);
                 }
             }
