@@ -54,10 +54,12 @@ function getVotes(client) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
-      console.log("Querying database successful, formatting result...");
+      console.log("Querying database successful.");
+      console.log("Formatting result...");
       var votes = collectVotesFromResult(result);
       console.log("Emiting score...");
       io.sockets.emit("scores", JSON.stringify(votes));
+      console.log("Score emited.");
     }
     setTimeout(function() {getVotes(client) }, 1000);
   });
