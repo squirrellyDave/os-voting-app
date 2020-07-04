@@ -71,13 +71,16 @@ class Worker {
     try {
 
       Class.forName("org.postgresql.Driver");
-      String url = "jdbc:postgresql://" + host + "/postgres";
+      // Format: jdbc:postgresql://host:port/database
+      String url = "jdbc:postgresql://" + host + ":5432/postgres";
 
       while (conn == null) {
         try {
-          conn = DriverManager.getConnection(url, "postgres", "postgres");
-        } catch (SQLException e) {
+          // Format: DriverManager.getConnection(url, username, password);
+          conn = DriverManager.getConnection(url, "postgres_user", "postgres_password");
+        } catch (SQLException ex) {
           System.err.println("Waiting for db");
+          System.err.println("Error: " + ex.toString());
           sleep(1000);
         }
       }
