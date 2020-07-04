@@ -1,0 +1,63 @@
+{
+  "format": 1,
+  "restore": {
+    "d:\\Users\\Marc\\Downloads\\Projects\\os-voting-app\\worker\\src\\Worker\\Worker.csproj": {}
+  },
+  "projects": {
+    "d:\\Users\\Marc\\Downloads\\Projects\\os-voting-app\\worker\\src\\Worker\\Worker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\Users\\Marc\\Downloads\\Projects\\os-voting-app\\worker\\src\\Worker\\Worker.csproj",
+        "projectName": "Worker",
+        "projectPath": "d:\\Users\\Marc\\Downloads\\Projects\\os-voting-app\\worker\\src\\Worker\\Worker.csproj",
+        "packagesPath": "C:\\Users\\Marc\\.nuget\\packages\\",
+        "outputPath": "d:\\Users\\Marc\\Downloads\\Projects\\os-voting-app\\worker\\src\\Worker\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Marc\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp1.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp1.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "allWarningsAsErrors": true,
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp1.0": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "target": "Package",
+              "version": "[1.1.1, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Npgsql": {
+              "target": "Package",
+              "version": "[3.1.3, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[1.1.604-alpha, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
