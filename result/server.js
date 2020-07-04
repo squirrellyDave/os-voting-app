@@ -24,7 +24,7 @@ io.sockets.on('connection', function (socket) {
 });
 
 var pool = new pg.Pool({
-  // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>  
+  // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>
   connectionString: 'postgres://postgres_user:postgres_password@db/postgres'
 });
 
