@@ -16,7 +16,9 @@ namespace Worker
         {
             try
             {
-                var pgsql = OpenDbConnection("Server=db;Username=postgres_user;Password=postgres_password;");
+                // Old value: Server=db;Username=postgres_user;Password=postgres_password;
+                var connectionString = "Server=db;Port=5432;Database=postgres;User Id=postgres_user;Password=postgres_password;";
+                var pgsql = OpenDbConnection(connectionString);
                 var redisConn = OpenRedisConnection("redis");
                 var redis = redisConn.GetDatabase();
 
@@ -42,7 +44,7 @@ namespace Worker
                         if (!pgsql.State.Equals(System.Data.ConnectionState.Open))
                         {
                             Console.WriteLine("Reconnecting DB");
-                            pgsql = OpenDbConnection("Server=db;Username=postgres_user;Password=postgres_password;");
+                            pgsql = OpenDbConnection(connectionString);
                         }
                         else
                         { // Normal +1 vote requested
@@ -70,6 +72,7 @@ namespace Worker
             {
                 try
                 {
+                    //todo: This line throws an error and the Pod loops in status 'Waiting for db"
                     connection = new NpgsqlConnection(connectionString);
                     connection.Open();
                     break;
