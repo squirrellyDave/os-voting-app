@@ -24,7 +24,8 @@ io.sockets.on('connection', function (socket) {
 });
 
 var pool = new pg.Pool({
-  connectionString: 'postgres://postgres:postgres@db/postgres'
+  // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>  
+  connectionString: 'postgres://postgres_user:postgres_password@db/postgres'
 });
 
 async.retry(
