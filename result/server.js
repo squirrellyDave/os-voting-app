@@ -1,12 +1,7 @@
 var keys = require('./keys');
 var port = keys.appPort;
-var pgUser = keys.pgUser;
-var pgPassword = keys.pgPassword;
-var pgHost = keys.pgHost;
-var pgPort = keys.pgPort
-var pgDatabase = keys.pgDatabase;
 // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>
-var pgConString = 'postgres://${pgUser}:${pgPassword}@${pgHost}:${pgPort}/${pgDatabase}';
+var pgConString = 'postgres://' + keys.pgUser + ':' + keys.pgPassword + '@' + keys.pgHost + ':' + keys.pgPort + '/' + keys.pgDatabase;
 console.log("Using connection string: " + pgConString);
 
 var express = require('express'),
