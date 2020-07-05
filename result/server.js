@@ -15,16 +15,13 @@ io.set('transports', ['polling']);
 var port = process.env.PORT || 4000;
 
 io.sockets.on('connection', function (socket) {
-
   socket.emit('message', { text : 'Welcome!' });
-
   socket.on('subscribe', function (data) {
     socket.join(data.channel);
   });
 });
 
 var pool = new pg.Pool({
-  // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>
   connectionString: 'postgres://postgres_user:postgres_password@db/postgres'
 });
 
@@ -48,18 +45,12 @@ async.retry(
 );
 
 function getVotes(client) {
-  //todo: This line throws: 'Error performing query: error: relation "votes" does not exist'
-  console.log("Querying database...");
   client.query('SELECT vote, COUNT(id) AS count FROM votes GROUP BY vote', [], function(err, result) {
     if (err) {
       console.error("Error performing query: " + err);
     } else {
-      console.log("Querying database successful.");
-      console.log("Formatting result...");
       var votes = collectVotesFromResult(result);
-      console.log("Emiting score...");
       io.sockets.emit("scores", JSON.stringify(votes));
-      console.log("Score emited.");
     }
     setTimeout(function() {getVotes(client) }, 1000);
   });
@@ -67,12 +58,9 @@ function getVotes(client) {
 
 function collectVotesFromResult(result) {
   var votes = {a: 0, b: 0};
-  var count = 0;
   result.rows.forEach(function (row) {
-    count++;
     votes[row.vote] = parseInt(row.count);
-  });  
-  console.log(count.toString() + " results formattet successfully.");
+  });
   return votes;
 }
 
