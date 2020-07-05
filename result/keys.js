@@ -7,7 +7,5 @@ module.exports = {
   pgPort: process.env.POSTGRES_PORT || '5432',
   pgDatabase: process.env.POSTGRES_DATABASE || 'postgres',
   pgUser: process.env.POSTGRES_USER || 'postgres_user',
-  pgPassword: process.env.POSTGRES_PASSWORD || 'postgres_password',
-  // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>
-  pgConString: 'postgres://${pgUser}:${pgPassword}@${pgHost}:${pgPort}/${pgDatabase}'
+  pgPassword: process.env.POSTGRES_PASSWORD || 'postgres_password'  
 };
