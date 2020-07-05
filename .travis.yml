@@ -17,12 +17,12 @@ after_success:
   # Be aware that you must use your docker hub username in the image tag
   # in the format <docker hub username>/<image-tag-name>
   # in order to successfully upload it to docker hub in the next step!
-  - docker build -t mhumpert/os-voting-app-vote -f ./vote/Dockerfile ./vote
-  - docker build -t mhumpert/os-voting-app-worker -f ./worker/Dockerfile ./worker
-  - docker build -t mhumpert/os-voting-app-result -f ./result/Dockerfile ./result
+  - docker build -t bl00na/os-voting-app-vote -f ./vote/Dockerfile ./vote
+  - docker build -t bl00na/os-voting-app-worker -f ./worker/Dockerfile ./worker
+  - docker build -t bl00na/os-voting-app-result -f ./result/Dockerfile ./result
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push mhumpert/os-voting-app-vote
-  - docker push mhumpert/os-voting-app-worker
-  - docker push mhumpert/os-voting-app-result
+  - docker push bl00na/os-voting-app-vote
+  - docker push bl00na/os-voting-app-worker
+  - docker push bl00na/os-voting-app-result
