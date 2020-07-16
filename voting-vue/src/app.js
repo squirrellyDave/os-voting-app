@@ -4,28 +4,30 @@ window.app = function () {
         new Vue ({
             el: '#app',
             data: {                
-                option_a: 'Cats',
-                option_b: 'Dogs',
+                options: [
+                    { id: 'a', title: 'Cats' },
+                    { id: 'b', title: 'Dogs' }                    
+                ],
                 hostname: 'Workstation',
                 vote: ''
             },
             computed: {
                 getTitle: function() {
-                    return this.option_a + ' vs. ' + this.option_b + "!";
+                    return this.options[0].title + ' vs. ' + this.options[1].title + "!";
                 }
             },
             methods: {
-                handleSubmit: function(form) {
-                    if (form.submitter.attributes.value === undefined) return;
+                handleSubmit: function(form) {                    
                     this.vote = form.submitter.attributes.value.textContent;
                     console.log('Submitted: ' + this.vote);
                 },
-                setVote: function(value) {
-                    this.vote = value;
-                    console.log('Submitted: ' + this.vote);
-                },
-                voted: function() {
-                    return this.vote != '';
+                setVote: function(id) {
+                    var entry = this.options.find(option => option.id === id);
+                    if (entry) {
+                        this.vote = entry.id;
+                        console.log('Submitted: ' + entry.title + ' (' + entry.id + ').');
+                    }
+                    else console.log('Error: Index "' + entry.id + '" of the vote was not found in the database.');
                 }
             }
         });
