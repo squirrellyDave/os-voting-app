@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+
+/* Basic screen output definitions for the website */
+@media screen, handheld, projection {
+
+	html, body {
+		margin: 0;
+		padding: 0;
+		background-color: #F7F8F9;
+		font-family: 'Open Sans';
+		font-size: 1.3em;
+		height: 100vh;	
+	}
+
+	.website {
+		margin: 10px auto 10px auto;				
+	}
+
+	.page-header {
+		text-align: center;
+	}
+
+	.page-footer {
+		text-align: center;
+	}
+
+	/* To work properly, keep the order of the a-Links underneath as it is */
+	a:link {		
+		color: #000000;
+		text-decoration: none;
+	}
+
+	a:visited {		
+		color: #A9A9A9;
+		text-decoration: none;
+	}
+
+	a:hover {		
+		color: #29A6E4;
+		text-decoration: none;
+	}
+
+	a:active {		
+		color: #29A6E4;
+		text-decoration: none;
+	}
+
+	a:focus {		
+		color: #60EFEF;
+		text-decoration: none;
+	}
+	
+	/* Lists */
+	ul {
+		list-style: none outside;
+		margin: 10px 0px 0px 0px;
+		padding: 0px;
+	}	
+}
+
+/* Basic resolution dependend definitions */
+@media (max-width:589px) {
+	.website {
+		width: 340px!important;
+	}
+	
+	.time {
+		display: none;
+	}
+}
+
+@media (min-width:590px) {
+	.website {
+		width: 580px!important;
+	}
+	
+	.time {
+		display: inline;
+	}
+}
+
+@media (min-width:1000px) {
+	.website {
+		width: 650px!important;
+	}
+	
+	.time {
+		display: inline;
+	}
+}
+
+/* Definitions for printer output */
+@media print {
+	
+}
