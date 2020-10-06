@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4y6g0mrIOPRNHaR7vWBf/snDbB1X8E0RWHuDnBlz1QF8KSyDqTDnMvkY4shguxaC4PnyGB4BbJTylVhaUiYECw==",
+  "dgSpecHash": "g3eCXIoIx8XmELfAXITDXH6C5gGQdkjoCdSB7Vo69aI+DBZt5TwDNmD68PoHDq3uun42xnTDW3kaRmxNkthshw==",
   "success": true,
-  "projectFilePath": "d:\\Users\\Marc\\Downloads\\Projects\\os-voting-app\\worker\\src\\Worker\\Worker.csproj",
+  "projectFilePath": "D:\\Users\\Marc\\OneDrive\\Projects\\os-voting-app\\worker\\src\\Worker\\Worker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Marc\\.nuget\\packages\\libuv\\1.9.1\\libuv.1.9.1.nupkg.sha512",
     "C:\\Users\\Marc\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
