@@ -4,6 +4,7 @@ import os
 import socket
 import random
 import json
+import logging
 
 option_a = os.getenv('OPTION_A', 'Cats')
 option_b = os.getenv('OPTION_B', 'Dogs')
@@ -19,6 +20,11 @@ def get_redis():
 
 @app.route("/", methods=['POST','GET'])
 def hello():
+    logging.info('Environment OPTION_A: ' + os.getenv('OPTION_A'))
+    logging.info('Environment OPTION_B: ' + os.getenv('OPTION_B'))
+    logging.info('Option A:' + option_a)
+    logging.info('Option B:' + option_b)    
+
     voter_id = request.cookies.get('voter_id')
     if not voter_id:
         voter_id = hex(random.getrandbits(64))[2:-1]
