@@ -1,15 +1,13 @@
+import * as keys from '../keys.js';
 var app = angular.module('catsvsdogs', []);
 var socket = io.connect({transports:['polling']});
 
 var bg1 = document.getElementById('background-stats-1');
 var bg2 = document.getElementById('background-stats-2');
 
-app.factories('keys', function () {
-});
-
-app.controller('statsCtrl', function($scope, keys) {
-  $scope.option_a = keys.option_a;
-  $scope.option_b = keys.option_b;
+app.controller('statsCtrl', function($scope) {
+  $scope.option_a = keys.option_a || 'Cats';
+  $scope.option_b = keys.option_b || 'Dogs';
   $scope.aPercent = 50;
   $scope.bPercent = 50;
 
