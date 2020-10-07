@@ -1,5 +1,4 @@
 var keys = require('./keys');
-var port = keys.appPort;
 // Syntax: postgres://<username>:<password>@<servername>[:<port>]/<databasename>
 var pgConString = 'postgres://' + keys.pgUser + ':' + keys.pgPassword + '@' + keys.pgHost + ':' + keys.pgPort + '/' + keys.pgDatabase;
 console.log("Using connection string: " + pgConString);
@@ -87,7 +86,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.resolve(__dirname + '/views/index.html'));
 });
 
-server.listen(port, function () {
+server.listen(keys.appPort, function () {
   var port = server.address().port;
   console.log('App running on port ' + port);
 });
