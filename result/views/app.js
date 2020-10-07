@@ -1,3 +1,5 @@
+const { option_a, option_b } = require("../keys");
+
 var app = angular.module('catsvsdogs', []);
 var socket = io.connect({transports:['polling']});
 
@@ -5,8 +7,8 @@ var bg1 = document.getElementById('background-stats-1');
 var bg2 = document.getElementById('background-stats-2');
 
 app.controller('statsCtrl', function($scope) {
-  $scope.option_a = 'Cats';
-  $scope.option_b = 'Dogs';
+  $scope.option_a = option_a;
+  $scope.option_b = option_b;
   $scope.aPercent = 50;
   $scope.bPercent = 50;
 
