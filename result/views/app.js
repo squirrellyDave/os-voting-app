@@ -6,8 +6,8 @@ var bg1 = document.getElementById('background-stats-1');
 var bg2 = document.getElementById('background-stats-2');
 
 app.controller('statsCtrl', function($scope) {
-  $scope.option_a = keys.option_a || 'Cats';
-  $scope.option_b = keys.option_b || 'Dogs';
+  $scope.option_a = 'Cats';
+  $scope.option_b = 'Dogs';
   $scope.aPercent = 50;
   $scope.bPercent = 50;
 
