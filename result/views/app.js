@@ -1,4 +1,4 @@
-import * as keys from '../keys.js';
+//import * as keys from '../keys.js';
 var app = angular.module('catsvsdogs', []);
 var socket = io.connect({transports:['polling']});
 
