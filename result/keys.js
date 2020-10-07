@@ -2,6 +2,8 @@
 // In your code you need to import this file, like f.e.: const keys = require('./keys');
 // After that you can use the variables like this: var redisHost = keys.redisHost;
 module.exports = {
+  option_a: process.env.OPTION_A || 'Cats',
+  option_b: process.env.OPTION_B || 'Dogs',
   appPort: process.env.PORT || 4000,
   pgHost: process.env.POSTGRES_HOST || 'db',
   pgPort: process.env.POSTGRES_PORT || '5432',
