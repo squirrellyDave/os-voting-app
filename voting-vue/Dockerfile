@@ -12,7 +12,7 @@ FROM nginx:1.17
 COPY ./nginx.conf /etc/nginx/nginx.conf
 # Copy over startup shell script
 COPY ./entrypoint.sh /
-RUN chmod +x /entrypoint.sh
+RUN chmod +rwx /entrypoint.sh
 # Copy over the compiled application from the 'builder' container
 WORKDIR /code
 COPY --from=builder /app/dist ./
