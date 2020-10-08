@@ -43,6 +43,7 @@
 </template>
 
 <script>
+  import Configuration from '@/utils/configuration'
   export default {
     name: 'Home',    
     data: function() {
