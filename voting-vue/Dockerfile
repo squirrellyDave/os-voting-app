@@ -19,6 +19,7 @@ RUN chmod +rwx /entrypoint.sh
 #WORKDIR /code
 #COPY --from=builder /app/dist ./
 COPY --from=builder /app/dist /usr/share/nginx/html
+RUN chmod -R 777 /usr/share/nginx/html
 
 # Setting the rights for the WORKDIR ('/code') and all files inside and also all subdirs and files
 # This is necessary for the entrypoint.sh script to write temporary files and update existing ones
