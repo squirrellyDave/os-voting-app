@@ -7,14 +7,14 @@ import org.json.JSONObject;
 
 class Worker {
   public static void main(String[] args) {    
-    String redisHostname = ((redisHostname = System.getenv("REDIS_HOST")) != null) ? redisHostname : "redis";
-    String redisPort = ((redisPort = System.getenv("REDIS_PORT")) != null) ? redisPort : "6379";
-    String redisPassword = ((redisPassword = System.getenv("REDIS_PASSWORD")) != null) ? redisPassword : "redis_password";    
-    String pgHost = ((pgHost = System.getenv("POSTGRES_HOST")) != null) ? pgHost : "db";
-    String pgPort = ((pgPort = System.getenv("POSTGRES_PORT")) != null) ? pgPort : "5432";
-    String pgDatabase = ((pgDatabase = System.getenv("POSTGRES_DATABASE")) != null) ? pgDatabase : "postgres";
-    String pgUser = ((pgUser = System.getenv("POSTGRES_USER")) != null) ? pgUser : "postgres_user";
-    String pgPassword = ((pgPassword = System.getenv("POSTGRES_PASSWORD")) != null) ? pgPassword : "postgres_password";
+    String redisHostname = ((redisHostname = System.getenv("ENV_VAR_REDIS_HOST")) != null) ? redisHostname : "redis";
+    String redisPort = ((redisPort = System.getenv("ENV_VAR_REDIS_PORT")) != null) ? redisPort : "6379";
+    String redisPassword = ((redisPassword = System.getenv("ENV_VAR_REDIS_PASSWORD")) != null) ? redisPassword : "redis_password";    
+    String pgHost = ((pgHost = System.getenv("ENV_VAR_POSTGRES_HOST")) != null) ? pgHost : "db";
+    String pgPort = ((pgPort = System.getenv("ENV_VAR_POSTGRES_PORT")) != null) ? pgPort : "5432";
+    String pgDatabase = ((pgDatabase = System.getenv("ENV_VAR_POSTGRES_DATABASE")) != null) ? pgDatabase : "postgres";
+    String pgUser = ((pgUser = System.getenv("ENV_VAR_POSTGRES_USER")) != null) ? pgUser : "postgres_user";
+    String pgPassword = ((pgPassword = System.getenv("ENV_VAR_POSTGRES_PASSWORD")) != null) ? pgPassword : "postgres_password";
     // Syntax: jdbc:postgresql://host:port/database
     String connectionString = "jdbc:postgresql://" + pgHost + ":" + pgPort + "/" + pgDatabase;
     System.err.println("Using connection string: " + connectionString);

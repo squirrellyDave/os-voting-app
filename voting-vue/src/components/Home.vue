@@ -23,7 +23,7 @@
               :disabled="option.id == vote"
               @click="setVote(option.id)">
                 {{option.title}}
-                <i v-show="option.id == vote" class="fa fa-check-circle"></i>
+                <em v-show="option.id == vote" class="fa fa-check-circle"></em>
             </button>
             
             <div id="tip" v-show="this.vote">
@@ -46,11 +46,9 @@
   import Configuration from '@/utils/configuration'
   export default {
     name: 'Home',    
-    data: function() {
-      console.log('Detecting configuration values...');
-      var option_a = Configuration.value('OPTION_A');
-      var option_b = Configuration.value('OPTION_B');
-      console.log(`Configuration values detected: OPTION_A ("${option_a}") and OPTION B ("${option_b}") will be used.`);
+    data: function() {      
+      var option_a = Configuration.value('OPTION_A') || 'Cats';
+      var option_b = Configuration.value('OPTION_B') || 'Dogs';      
       return {
         options: [
             { id: 'a', title: option_a },

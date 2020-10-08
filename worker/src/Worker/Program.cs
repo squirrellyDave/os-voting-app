@@ -14,14 +14,14 @@ namespace Worker
     {
         public static int Main(string[] args)
         {
-            var redisHostname = Environment.GetEnvironmentVariable("REDIS_HOSTNAME") ?? "redis";
-            var redisPort = Environment.GetEnvironmentVariable("REDIS_PORT") ?? "6379";
-            var redisPassword = Environment.GetEnvironmentVariable("REDIS_PASSWORD") ?? "redis_password";
-            var pgHost = Environment.GetEnvironmentVariable("POSTGRES_HOST") ?? "db";
-            var pgPort = Environment.GetEnvironmentVariable("POSTGRES_PORT") ?? "5432";
-            var pgDatabase = Environment.GetEnvironmentVariable("POSTGRES_DATABASE") ?? "postgres";
-            var pgUser = Environment.GetEnvironmentVariable("POSTGRES_USER") ?? "postgres_user";
-            var pgPassword = Environment.GetEnvironmentVariable("POSTGRES_PASSWORD") ?? "postgres_password";
+            var redisHostname = Environment.GetEnvironmentVariable("ENV_VAR_REDIS_HOSTNAME") ?? "redis";
+            var redisPort = Environment.GetEnvironmentVariable("ENV_VAR_REDIS_PORT") ?? "6379";
+            var redisPassword = Environment.GetEnvironmentVariable("ENV_VAR_REDIS_PASSWORD") ?? "redis_password";
+            var pgHost = Environment.GetEnvironmentVariable("ENV_VAR_POSTGRES_HOST") ?? "db";
+            var pgPort = Environment.GetEnvironmentVariable("ENV_VAR_POSTGRES_PORT") ?? "5432";
+            var pgDatabase = Environment.GetEnvironmentVariable("ENV_VAR_POSTGRES_DATABASE") ?? "postgres";
+            var pgUser = Environment.GetEnvironmentVariable("ENV_VAR_POSTGRES_USER") ?? "postgres_user";
+            var pgPassword = Environment.GetEnvironmentVariable("ENV_VAR_POSTGRES_PASSWORD") ?? "postgres_password";
             // Syntax: Server=db;Port=5432;Database=postgres;User Id=postgres_user;Password=postgres_password
             var connectionString = $"Server={pgHost};Port={pgPort};Database={pgDatabase};User Id={pgUser};Password={pgPassword};";
             Console.WriteLine("Using connection string: " + connectionString);
