@@ -13,7 +13,7 @@ do
   fi
 
   # The tool 'envsubst' is included in the nginx container image and replaces strings in a file with the value of the given environment variable
-  envsubst '$VUE_APP_OPTION_A,$VUE_APP_OPTION_B' < $file.tmpl.js > $file
+  envsubst '$ENV_VAR_OPTION_A,$ENV_VAR_OPTION_B' < $file.tmpl.js > $file
   
   echo "Done processing $file.";
 done

@@ -4,8 +4,8 @@ dotenv.config()
 export default class Configuration {
   static get CONFIG () {
     return {
-      OPTION_A: '$VUE_APP_OPTION_A',
-      OPTION_B: '$VUE_APP_OPTION_B'
+      OPTION_A: '$ENV_VAR_OPTION_A',
+      OPTION_B: '$ENV_VAR_OPTION_B'
     }
   }
 

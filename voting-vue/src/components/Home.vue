@@ -49,7 +49,7 @@
     data: function() {
       console.log('Detecting configuration values...');
       var option_a = Configuration.value('OPTION_A');
-      var option_b = Configuration.value('OPTION_B');      
+      var option_b = Configuration.value('OPTION_B');
       console.log(`Configuration values detected: OPTION_A ("${option_a}") and OPTION B ("${option_b}") will be used.`);
       return {
         options: [
