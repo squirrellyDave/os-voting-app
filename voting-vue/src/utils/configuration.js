@@ -23,8 +23,8 @@ export default class Configuration {
     }
 
     if (value.startsWith('$VUE_APP_')) {
-      // value was not replaced, it seems we are in development.
-      // Remove $ and get current value from process.env
+      // Value was not replaced, it seems we are in development.
+      // Remove $ and get current value from process.env.
       const envName = value.substr(1)
       const envValue = process.env[envName]
       if (envValue) {
@@ -33,7 +33,7 @@ export default class Configuration {
         console.log(`Configuration: Environment variable "${envName}" is not defined`)
       }
     } else {
-      // value was already replaced, it seems we are in production.
+      // Value was already replaced, it seems we are in production.
       return value
     }
   }

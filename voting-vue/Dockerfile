@@ -8,23 +8,18 @@ RUN npm run build
 
 # Create a 'production' container using nginx to serve the application
 FROM nginx:1.17
-# Copy the special nginx configuration file for Openshift into the container
+# Copy the nginx configuration file for Openshift into the container
 COPY ./nginx.conf /etc/nginx/nginx.conf
-
 # Copy over startup shell script
 COPY ./entrypoint.sh /
-RUN chmod +rwx /entrypoint.sh
-
+# Set execution rights for the startup shell script inside the running container
+RUN chmod +x /entrypoint.sh
 # Copy over the compiled application from the 'builder' container
-#WORKDIR /code
-#COPY --from=builder /app/dist ./
 COPY --from=builder /app/dist /usr/share/nginx/html
+# For the startup shell script to work correctly set the rights to create and update files
 RUN chmod -R 777 /usr/share/nginx/html
-
-# Setting the rights for the WORKDIR ('/code') and all files inside and also all subdirs and files
-# This is necessary for the entrypoint.sh script to write temporary files and update existing ones
-#RUN chmod -R 777 ./
+# Expose a container port to access its' service
 EXPOSE 8080:8080
-#CMD ["nginx", "-g", "daemon off;"]
-# Call the startup shell script
+# Call the startup shell script and inside of that file start nginx in the last step
 ENTRYPOINT ["/entrypoint.sh"]
+#CMD ["nginx", "-g", "daemon off;"]
