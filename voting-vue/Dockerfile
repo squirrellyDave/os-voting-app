@@ -13,7 +13,7 @@ COPY ./nginx.conf /etc/nginx/nginx.conf
 WORKDIR /code
 # Copy over the compiled application from the 'builder' container
 COPY --from=builder /app/dist . 
-COPY /entrypoint.sh .
+COPY entrypoint.sh ./
 EXPOSE 8080:8080
 #CMD ["nginx", "-g", "daemon off;"]
-CMD ["/entrypoint.sh"]
+CMD ["entrypoint.sh"]
