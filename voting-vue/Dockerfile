@@ -1,8 +1,7 @@
 # Create a 'builder' container to compile the application
 FROM node:alpine as builder
 WORKDIR '/app'
-COPY package.json .
-COPY package-lock.json .
+COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
 RUN npm run build
@@ -15,4 +14,6 @@ WORKDIR /code
 # Copy over the compiled application from the 'builder' container
 COPY --from=builder /app/dist . 
 EXPOSE 8080:8080
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
+COPY entrypoint.sh ./
+CMD ["./entrypoint.sh"]
