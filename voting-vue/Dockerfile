@@ -9,8 +9,7 @@ RUN npm run build
 # Create a 'production' container using nginx to serve the application
 FROM nginx:1.17
 # Copy the special nginx configuration file for Openshift into the container
-#COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx.conf /etc/nginx/nginx.conf
 
 # Copy over startup shell script
 COPY ./entrypoint.sh /
