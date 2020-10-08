@@ -13,7 +13,9 @@ do
   fi
 
   envsubst '$VUE_APP_OPTION_A,$VUE_APP_OPTION_B' < $file.tmpl.js > $file
+  
+  echo "Done processing $file.";
 done
 
-echo "Starting Nginx"
+echo "Starting Nginx."
 nginx -g 'daemon off;'

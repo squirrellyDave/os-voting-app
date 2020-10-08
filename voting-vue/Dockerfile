@@ -16,6 +16,8 @@ RUN chmod +rwx /entrypoint.sh
 # Copy over the compiled application from the 'builder' container
 WORKDIR /code
 COPY --from=builder /app/dist ./
+# Setting the rights for the WORKDIR ('/code') and all files inside and also all subdirs and files
+# This is necessary for the entrypoint.sh script to write temporary files and update existing ones
 RUN chmod -R 777 ./
 EXPOSE 8080:8080
 #CMD ["nginx", "-g", "daemon off;"]
