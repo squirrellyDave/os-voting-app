@@ -16,6 +16,7 @@ RUN chmod +rwx /entrypoint.sh
 # Copy over the compiled application from the 'builder' container
 WORKDIR /code
 COPY --from=builder /app/dist ./
+RUN chmod -R 777 ./
 EXPOSE 8080:8080
 #CMD ["nginx", "-g", "daemon off;"]
 # Call the startup shell script
