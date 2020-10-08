@@ -4,7 +4,7 @@
 module.exports = {
   option_a: process.env.ENV_VAR_OPTION_A || 'Cats',
   option_b: process.env.ENV_VAR_OPTION_B || 'Dogs',
-  appPort: process.env.ENV_VAR_PORT || 4000,
+  appPort: process.env.ENV_VAR_RESULT_APP_PORT || 4000,
   pgHost: process.env.ENV_VAR_POSTGRES_HOST || 'db',
   pgPort: process.env.ENV_VAR_POSTGRES_PORT || '5432',
   pgDatabase: process.env.ENV_VAR_POSTGRES_DATABASE || 'postgres',
