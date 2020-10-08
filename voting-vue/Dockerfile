@@ -16,4 +16,4 @@ COPY --from=builder /app/dist .
 COPY entrypoint.sh ./
 EXPOSE 8080:8080
 #CMD ["nginx", "-g", "daemon off;"]
-CMD ["entrypoint.sh"]
+CMD ["/entrypoint.sh"]
