@@ -17,6 +17,6 @@ RUN chmod +x /entrypoint.sh
 WORKDIR /code
 COPY --from=builder /app/dist ./
 EXPOSE 8080:8080
-# Call the startup shell script
 #CMD ["nginx", "-g", "daemon off;"]
+# Call the startup shell script
 ENTRYPOINT ["/entrypoint.sh"]
