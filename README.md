@@ -1,25 +1,54 @@
 Example Voting App
-=========
+==================
 
 Getting started
 ---------------
 
-Download [Docker](https://www.docker.com/products/overview). If you are on Mac or Windows, [Docker Compose](https://docs.docker.com/compose) will be automatically installed. On Linux, make sure you have the latest version of [Compose](https://docs.docker.com/compose/install/).
+1. Set up Redis Ephemeral Cache in Openshift
+    a. In Openshift, add a new Application by searching the Catalog for "Redis Ephemeral" and use the Template
+    b. Redis Connection Password: redis_password
 
-Run in this directory:
-```
-docker-compose up
-```
-The app will be running at [http://localhost:5000](http://localhost:5000), and the results will be at [http://localhost:5001](http://localhost:5001).
+2. Set up the Python Vote app
+    a. In Openshift, add a new Application by searching the Catalog for "Python" and use the Builder Image
+    b. Git Repo URL: Inser your github repository url in wich the source code for the app is stored
+    c. Select "Advanced Git Options"
+        c1. Git Reference: master
+        c2. Context Dir: /vote
+    d. Application Name: Vote-Application
+    e. Name: vote-python
+    f. Resource type to generate: Deployment
+    g. Create a route to the application: Yes
 
-Alternately, if you want to run it on a [Docker Swarm](https://docs.docker.com/engine/swarm/), first make sure you have a swarm. If you don't, run:
-```
-docker swarm init
-```
-Once you have your swarm, in this directory run:
-```
-docker stack deploy --compose-file docker-stack.yml vote
-```
+3. Set up the PostgreSQL database
+    a. In Openshift, add a new Application by searching the Catalog for "Postgre" and use the Template
+    b. Database Service Name: db
+    c. PostgreSQL Connection Username: postgres_user
+    d. PostgreSQL Connection Password: postgres_password
+    e. PostgreSQL Database Name: postgres
+    f. Volume Capacity: 100Mi
+    g. Memory Limit: 100Mi
+
+4. Set up the Nodejs Result app
+    a. In Openshift, add a new Application by selecting "From Dockerfile" as the method of choice
+    b. Git Repo URL: Inser your github repository url in wich the source code for the app is stored
+    c. Select "Advanced Git Options"
+        c1. Git Reference: master
+        c2. Context Dir: /result
+    d. Application: Vote-Application
+    e. Name: result-nodejs
+    f. Resource type to generate: Deployment
+    g. Create a route to the application: Yes
+
+5. Set up the Java Worker app
+    a. In Openshift, add a new Application by selecting "From Dockerfile" as the method of choice
+    b. Git Repo URL: Inser your github repository url in wich the source code for the app is stored
+    c. Select "Advanced Git Options"
+        c1. Git Reference: master
+        c2. Context Dir: /worker
+    d. Application: Vote-Application
+    e. Name: worker-java
+    f. Resource type to generate: Deployment
+    g. Create a route to the application: No
 
 Architecture
 -----
