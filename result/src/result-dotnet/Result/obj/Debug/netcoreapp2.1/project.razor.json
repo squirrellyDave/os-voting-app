@@ -1,5 +1,5 @@
 {
-  "FilePath": "d:\\Users\\Marc\\OneDrive\\Projects\\os-voting-app\\result\\dotnet\\Result\\Result.csproj",
+  "FilePath": "d:\\Users\\Marc\\OneDrive\\Projects\\os-voting-app\\result\\src\\result-dotnet\\Result\\Result.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-2.1",
     "LanguageVersion": "2.1",
@@ -1818,7 +1818,7 @@
   "RootNamespace": "Result",
   "Documents": [
     {
-      "FilePath": "d:\\Users\\Marc\\OneDrive\\Projects\\os-voting-app\\result\\dotnet\\Result\\Pages\\Index.cshtml",
+      "FilePath": "d:\\Users\\Marc\\OneDrive\\Projects\\os-voting-app\\result\\src\\result-dotnet\\Result\\Pages\\Index.cshtml",
       "TargetPath": "Pages\\Index.cshtml",
       "FileKind": "mvc"
     }

@@ -4,13 +4,13 @@ WORKDIR /app
 
 RUN npm install -g nodemon
 
-COPY package*.json ./
+COPY ./src/result-nodejs/package*.json ./
 
 RUN npm ci \
  && npm cache clean --force \
  && mv /app/node_modules /node_modules
 
-COPY . .
+COPY ./src/result-nodejs .
 
 ENV PORT 80
 

@@ -1,10 +1,10 @@
 FROM microsoft/dotnet:2.1-sdk-nanoserver-sac2016 as builder
 
 WORKDIR /Result
-COPY Result/Result.csproj .
+COPY src/result-dotnet/Result/Result.csproj .
 RUN dotnet restore
 
-COPY /Result .
+COPY src/result-dotnet/Result .
 RUN dotnet publish -c Release -o /out Result.csproj
 
 # app image
