@@ -100,7 +100,7 @@
     height: 50%;
   }
 
-  button i{
+  button em{
     float: right;
     padding-right: 30px;
     margin-top: 3px;
