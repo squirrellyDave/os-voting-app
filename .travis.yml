@@ -15,15 +15,15 @@ services:
 
 after_success:
   # Be aware that you must use your docker hub username in the image tag
-  # in the format <docker hub username>/<image-tag-name>
-  # in order to successfully upload it to docker hub in the next step!
+  # in the format <docker-hub-username>/<image-tag-name>
+  # in order to successfully upload it to docker hub in the next step
   - docker build -t bl00na/os-voting-app-vote -f ./vote/Dockerfile ./vote
   - docker build -t bl00na/os-voting-app-voting-vue -f ./voting-vue/Dockerfile ./voting-vue
   - docker build -t bl00na/os-voting-app-worker -f ./worker/Dockerfile ./worker
   - docker build -t bl00na/os-voting-app-result -f ./result/Dockerfile ./result
-  # Log in to the docker CLI
+  # Log in to the docker CLI - the parameters are set up in Travis CI beforehand
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  # Take those images and push them to docker hub
+  # Push the images created to docker hub
   - docker push bl00na/os-voting-app-vote
   - docker push bl00na/os-voting-app-voting-vue
   - docker push bl00na/os-voting-app-worker
