@@ -8,7 +8,7 @@ pipeline {
     stages { 
         stage('Cloning our Git') { 
             steps { 
-                git 'https://github.com/bl00na/os-voting-app.git/vote' 
+                git 'https://github.com/bl00na/os-voting-app.git' 
             }
         } 
         stage('Building our image') { 
