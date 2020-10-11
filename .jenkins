@@ -1,14 +1,14 @@
 pipeline { 
     environment { 
-        registry = "YourDockerhubAccount/YourRepository" 
-        registryCredential = 'dockerhub_id' 
+        registry = "bl00na/vote-application" 
+        registryCredential = 'dockerhub_credentials_bl00na' 
         dockerImage = '' 
     }
     agent any 
     stages { 
         stage('Cloning our Git') { 
             steps { 
-                git 'https://github.com/YourGithubAccount/YourGithubRepository.git' 
+                git 'https://github.com/bl00na/os-voting-app.git/vote' 
             }
         } 
         stage('Building our image') { 
