@@ -32,12 +32,12 @@ pipeline {
         } 
         stage('Building images') { 
             steps { 
-                script { 
+                script {                     
                     DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
-                    DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
-                    DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
-                    DOCKERIMAGE_WORKER_DOTNET = docker.build -t REPO_WORKER_DOTNET -f DOCKERFILE_PATH_WORKER_DOTNET 
-                    DOCKERIMAGE_RESULT_NODEJS = docker.build -t REPO_RESULT_NODEJS -f DOCKERFILE_PATH_RESULT_NODEJS 
+                    //DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
+                    //DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
+                    //DOCKERIMAGE_WORKER_DOTNET = docker.build -t REPO_WORKER_DOTNET -f DOCKERFILE_PATH_WORKER_DOTNET 
+                    //DOCKERIMAGE_RESULT_NODEJS = docker.build -t REPO_RESULT_NODEJS -f DOCKERFILE_PATH_RESULT_NODEJS 
                 }
             } 
         }
@@ -46,10 +46,10 @@ pipeline {
                 script { 
                     docker.withRegistry('', DOCKERHUB_CREDENTIALS) { 
                         DOCKERIMAGE_VOTE_PYTHON.push() 
-                        DOCKERIMAGE_VOTE_VUEJS.push() 
-                        DOCKERIMAGE_WORKER_JAVA.push() 
-                        DOCKERIMAGE_WORKER_DOTNET.push()                         
-                        DOCKERIMAGE_RESULT_NODEJS.push()
+                        //DOCKERIMAGE_VOTE_VUEJS.push() 
+                        //DOCKERIMAGE_WORKER_JAVA.push() 
+                        //DOCKERIMAGE_WORKER_DOTNET.push()                         
+                        //DOCKERIMAGE_RESULT_NODEJS.push()
                     }
                 } 
             }
@@ -57,10 +57,10 @@ pipeline {
         stage('Cleaning up') { 
             steps {                 
                 sh docker rmi $REPO_VOTE_VUEJS:latest
-                sh docker rmi $REPO_VOTE_PYTHON:latest
-                sh docker rmi $REPO_WORKER_DOTNET:latest
-                sh docker rmi $REPO_WORKER_JAVA:latest
-                sh docker rmi $REPO_RESULT_NODEJS:latest
+                //sh docker rmi $REPO_VOTE_PYTHON:latest
+                //sh docker rmi $REPO_WORKER_DOTNET:latest
+                //sh docker rmi $REPO_WORKER_JAVA:latest
+                //sh docker rmi $REPO_RESULT_NODEJS:latest
             }
         } 
     }
