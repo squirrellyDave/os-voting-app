@@ -57,7 +57,7 @@ pipeline {
         } 
         stage('Cleaning up') { 
             steps {                
-                sh "docker rmi $REPO_VOTE_PYTHON" 
+                rem sh "docker rmi $REPO_VOTE_PYTHON" 
                 rem sh "docker rmi $REPO_VOTE_VUEJS" 
                 rem sh "docker rmi $REPO_WORKER_JAVA" 
                 rem sh "docker rmi $REPO_WORKER_DOTNET" 
