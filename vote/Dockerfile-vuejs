@@ -1,17 +1,17 @@
 # Create a 'builder' container to compile the application
 FROM node:alpine as builder
 WORKDIR '/app'
-COPY package.json package-lock.json ./
+COPY ./src/vote-vuejs/package.json ./src/vote-vuejs/package-lock.json ./
 RUN npm install
-COPY . .
+COPY ./src/vote-vuejs .
 RUN npm run build
 
 # Create a 'production' container using nginx to serve the application
 FROM nginx:1.17
 # Copy the nginx configuration file for Openshift into the container
-COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY ./src/vote-vuejs/nginx.conf /etc/nginx/nginx.conf
 # Copy over startup shell script
-COPY ./entrypoint.sh /
+COPY ./src/vote-vuejs/entrypoint.sh /
 # Set execution rights for the startup shell script inside the running container
 RUN chmod +x /entrypoint.sh
 # Copy over the compiled application from the 'builder' container
