@@ -21,7 +21,7 @@ after_success:
   - docker build -t bl00na/os-voting-app-vote-vuejs -f ./vote/Dockerfile-vuejs ./vote
   - docker build -t bl00na/os-voting-app-worker-java -f ./worker/Dockerfile ./worker
   - docker build -t bl00na/os-voting-app-worker-dotnet -f ./worker/Dockerfile-dotnet ./worker
-  - docker build -t bl00na/os-voting-app-result-nodejs -f ./result/Dockerfile ./result  
+  - docker build -t bl00na/os-voting-app-result-nodejs -f ./result/Dockerfile ./result
     # This Dockerfile uses the Microsoft Nano Server base OS image that reqires the host OS version to match the container OS version.
   # With Travis CI used that prerequisite is not fulfilled, thus the image build and push steps are commented out in this file.
   #- docker build -t bl00na/os-voting-app-result-dotnet -f ./result/Dockerfile-dotnet-sac2016 ./result
