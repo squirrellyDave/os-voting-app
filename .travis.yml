@@ -22,7 +22,7 @@ after_success:
   - docker build -t bl00na/os-voting-app-worker-java -f ./worker/Dockerfile ./worker
   - docker build -t bl00na/os-voting-app-worker-dotnet -f ./worker/Dockerfile-dotnet ./worker
   - docker build -t bl00na/os-voting-app-result-nodejs -f ./result/Dockerfile ./result
-  - docker build -t bl00na/os-voting-app-result-dotnet -f ./result/Dockerfile-dotnet-1809 ./result
+  - docker build -t bl00na/os-voting-app-result-dotnet -f ./result/Dockerfile-dotnet-sac2016 ./result
   # Log in to the docker CLI - the parameters are set up in Travis CI beforehand
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push the images created to docker hub
