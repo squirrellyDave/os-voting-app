@@ -1,7 +1,7 @@
 pipeline { 
     environment { 
         GIT_URL = 'https://github.com/bl00na/os-voting-app.git' 
-        DOCKERHUB_CREDENTIALS = 'dockerhub_credentials' 
+        DOCKERHUB_CREDENTIALS = 'dockerhub_credentials'
         
         REPO_VOTE_PYTHON = 'bl00na/os-voting-app-vote-python' 
         DOCKERFILE_PATH_VOTE_PYTHON = './vote/Dockerfile ./vote' 
@@ -33,7 +33,7 @@ pipeline {
         stage('Building images') { 
             steps { 
                 script {                     
-                    DOCKERIMAGE_VOTE_PYTHON = docker.build bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
+                    DOCKERIMAGE_VOTE_PYTHON = docker.build -t bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
                     rem DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
                     rem DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
                     rem DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
@@ -57,11 +57,11 @@ pipeline {
         } 
         stage('Cleaning up') { 
             steps {                
-                sh 'docker rmi $REPO_VOTE_PYTHON:latest' 
-                rem sh 'docker rmi $REPO_VOTE_VUEJS:latest' 
-                rem sh 'docker rmi $REPO_WORKER_JAVA:latest' 
-                rem sh 'docker rmi $REPO_WORKER_DOTNET:latest' 
-                rem sh 'docker rmi $REPO_RESULT_NODEJS:latest' 
+                sh "docker rmi $REPO_VOTE_PYTHON" 
+                rem sh "docker rmi $REPO_VOTE_VUEJS" 
+                rem sh "docker rmi $REPO_WORKER_JAVA" 
+                rem sh "docker rmi $REPO_WORKER_DOTNET" 
+                rem sh "docker rmi $REPO_RESULT_NODEJS" 
             }
         } 
     }
