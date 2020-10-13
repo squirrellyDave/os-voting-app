@@ -57,11 +57,11 @@ pipeline {
         } 
         stage('Cleaning up') { 
             steps {                
-                sh docker rmi $REPO_VOTE_PYTHON:latest 
-                rem sh docker rmi $REPO_VOTE_VUEJS:latest 
-                rem sh docker rmi $REPO_WORKER_JAVA:latest 
-                rem sh docker rmi $REPO_WORKER_DOTNET:latest 
-                rem sh docker rmi $REPO_RESULT_NODEJS:latest 
+                sh 'docker rmi $REPO_VOTE_PYTHON:latest' 
+                rem sh 'docker rmi $REPO_VOTE_VUEJS:latest' 
+                rem sh 'docker rmi $REPO_WORKER_JAVA:latest' 
+                rem sh 'docker rmi $REPO_WORKER_DOTNET:latest' 
+                rem sh 'docker rmi $REPO_RESULT_NODEJS:latest' 
             }
         } 
     }
