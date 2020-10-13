@@ -1,7 +1,7 @@
 pipeline { 
     environment { 
         registry = "bl00na/vote-application" 
-        registryCredential = 'dockerhub_credentials_bl00na' 
+        registryCredential = 'dockerhub_credentials' 
         dockerImage = '' 
     }
     agent any 
