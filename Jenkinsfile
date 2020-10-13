@@ -6,19 +6,19 @@ pipeline {
     }
     agent any 
     stages { 
-        stage('Cloning our Git') { 
+        stage('Cloning Git repository') { 
             steps { 
                 git 'https://github.com/bl00na/os-voting-app.git' 
             }
         } 
-        stage('Building our image') { 
+        stage('Building images') { 
             steps { 
                 script { 
                     dockerImage = docker.build("bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote");                    
                 }
             } 
         }
-        stage('Deploy our image') { 
+        stage('Deploying images') { 
             steps { 
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
