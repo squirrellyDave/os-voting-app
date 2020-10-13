@@ -14,7 +14,7 @@ pipeline {
         stage('Building our image') { 
             steps { 
                 script { 
-                    dockerImage = docker.build("-t bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote");                    
+                    dockerImage = docker.build("bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote");                    
                 }
             } 
         }
