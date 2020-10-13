@@ -27,13 +27,13 @@ pipeline {
     stages { 
         stage('Cloning Git Repository') { 
             steps { 
-                git $GIT_URL
+                git GIT_URL
             }
         } 
         stage('Building images') { 
             steps { 
                 script {                     
-                    $DOCKERIMAGE_VOTE_PYTHON = docker.build bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
+                    DOCKERIMAGE_VOTE_PYTHON = docker.build bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
                     rem DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
                     rem DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
                     rem DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
@@ -46,7 +46,7 @@ pipeline {
             steps { 
                 script { 
                     docker.withRegistry('', DOCKERHUB_CREDENTIALS) { 
-                        $DOCKERIMAGE_VOTE_PYTHON.push() 
+                        DOCKERIMAGE_VOTE_PYTHON.push() 
                         rem DOCKERIMAGE_VOTE_VUEJS.push() 
                         rem DOCKERIMAGE_WORKER_JAVA.push() 
                         rem DOCKERIMAGE_WORKER_DOTNET.push() 
@@ -65,4 +65,4 @@ pipeline {
             }
         } 
     }
-} 
+}
