@@ -16,7 +16,6 @@ pipeline {
                 script { 
                     def dockerHome = tool 'DockerInstallation'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
-                    sudo dockerd
                 }
             }
         }
