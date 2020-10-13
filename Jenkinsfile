@@ -22,7 +22,7 @@ pipeline {
         stage('Building images') { 
             steps { 
                 script { 
-                    dockerImageVotePython = docker.build("bl00na/os-voting-app-vote-python", "-f ./vote/Dockerfile"); 
+                    dockerImageVotePython = docker.build("bl00na/os-voting-app-vote-python", "-f ./vote/Dockerfile ./vote"); 
                 }
             } 
         }
