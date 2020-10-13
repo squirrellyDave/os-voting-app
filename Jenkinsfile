@@ -33,12 +33,12 @@ pipeline {
         stage('Building images') { 
             steps { 
                 script {                     
-                    docker.build bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
-                    //DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
-                    //DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
-                    //DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
-                    //DOCKERIMAGE_WORKER_DOTNET = docker.build -t REPO_WORKER_DOTNET -f DOCKERFILE_PATH_WORKER_DOTNET 
-                    //DOCKERIMAGE_RESULT_NODEJS = docker.build -t REPO_RESULT_NODEJS -f DOCKERFILE_PATH_RESULT_NODEJS 
+                    $DOCKERIMAGE_VOTE_PYTHON = docker.build bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
+                    rem DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
+                    rem DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
+                    rem DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
+                    rem DOCKERIMAGE_WORKER_DOTNET = docker.build -t REPO_WORKER_DOTNET -f DOCKERFILE_PATH_WORKER_DOTNET 
+                    rem DOCKERIMAGE_RESULT_NODEJS = docker.build -t REPO_RESULT_NODEJS -f DOCKERFILE_PATH_RESULT_NODEJS 
                 }
             } 
         }
@@ -46,11 +46,11 @@ pipeline {
             steps { 
                 script { 
                     docker.withRegistry('', DOCKERHUB_CREDENTIALS) { 
-                        //DOCKERIMAGE_VOTE_PYTHON.push() 
-                        //DOCKERIMAGE_VOTE_VUEJS.push() 
-                        //DOCKERIMAGE_WORKER_JAVA.push() 
-                        //DOCKERIMAGE_WORKER_DOTNET.push()                         
-                        //DOCKERIMAGE_RESULT_NODEJS.push()
+                        rem DOCKERIMAGE_VOTE_PYTHON.push() 
+                        rem DOCKERIMAGE_VOTE_VUEJS.push() 
+                        rem DOCKERIMAGE_WORKER_JAVA.push() 
+                        rem DOCKERIMAGE_WORKER_DOTNET.push()                         
+                        rem DOCKERIMAGE_RESULT_NODEJS.push()
                     }
                 } 
             }
