@@ -2,7 +2,7 @@ pipeline {
     environment { 
         registry = "bl00na/os-voting-app-vote-python" 
         registryCredential = 'dockerhub_credentials' 
-        dockerImage = '' 
+        dockerImageVotePython = '' 
     }
     agent any 
     stages { 
@@ -14,7 +14,7 @@ pipeline {
         stage('Building images') { 
             steps { 
                 script { 
-                    dockerImage = docker.build("bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote");                    
+                    dockerImageVotePython = docker.build("bl00na/os-voting-app-vote-python -f ./vote/Dockerfile");                    
                 }
             } 
         }
@@ -22,7 +22,7 @@ pipeline {
             steps { 
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
-                        dockerImage.push() 
+                        dockerImageVotePython.push() 
                     }
                 } 
             }
