@@ -33,7 +33,8 @@ pipeline {
         stage('Building images') { 
             steps { 
                 script {                     
-                    DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
+                    DOCKERIMAGE_VOTE_PYTHON = docker build -t bl00na/os-voting-app-vote-python -f ./vote/Dockerfile ./vote
+                    //DOCKERIMAGE_VOTE_PYTHON = docker.build -t REPO_VOTE_PYTHON -f DOCKERFILE_PATH_VOTE_PYTHON 
                     //DOCKERIMAGE_VOTE_VUEJS = docker.build -t REPO_VOTE_VUEJS -f DOCKERFILE_PATH_VOTE_VUEJS 
                     //DOCKERIMAGE_WORKER_JAVA = docker.build -t REPO_WORKER_JAVA -f DOCKERFILE_PATH_WORKER_JAVA 
                     //DOCKERIMAGE_WORKER_DOTNET = docker.build -t REPO_WORKER_DOTNET -f DOCKERFILE_PATH_WORKER_DOTNET 
