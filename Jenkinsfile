@@ -11,9 +11,11 @@ pipeline {
                 git 'https://github.com/bl00na/os-voting-app.git' 
             }
         } 
-        stage('Initializing Docker'){
-            def dockerHome = tool 'DockerInstallation'
-            env.PATH = "${dockerHome}/bin:${env.PATH}"
+        stage('Initializing Docker') {
+            steps {
+                def dockerHome = tool 'DockerInstallation'
+                env.PATH = "${dockerHome}/bin:${env.PATH}"
+            }
         }
         stage('Building images') { 
             steps { 
