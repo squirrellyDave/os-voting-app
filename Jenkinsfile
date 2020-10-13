@@ -46,22 +46,22 @@ pipeline {
             steps { 
                 script { 
                     docker.withRegistry('', DOCKERHUB_CREDENTIALS) { 
-                        rem DOCKERIMAGE_VOTE_PYTHON.push() 
+                        $DOCKERIMAGE_VOTE_PYTHON.push() 
                         rem DOCKERIMAGE_VOTE_VUEJS.push() 
                         rem DOCKERIMAGE_WORKER_JAVA.push() 
-                        rem DOCKERIMAGE_WORKER_DOTNET.push()                         
+                        rem DOCKERIMAGE_WORKER_DOTNET.push() 
                         rem DOCKERIMAGE_RESULT_NODEJS.push()
                     }
                 } 
             }
         } 
         stage('Cleaning up') { 
-            steps {                 
-                sh docker rmi $REPO_VOTE_VUEJS:latest
-                //sh docker rmi $REPO_VOTE_PYTHON:latest
-                //sh docker rmi $REPO_WORKER_DOTNET:latest
-                //sh docker rmi $REPO_WORKER_JAVA:latest
-                //sh docker rmi $REPO_RESULT_NODEJS:latest
+            steps {                
+                sh docker rmi $REPO_VOTE_PYTHON:latest 
+                rem sh docker rmi $REPO_VOTE_VUEJS:latest 
+                rem sh docker rmi $REPO_WORKER_JAVA:latest 
+                rem sh docker rmi $REPO_WORKER_DOTNET:latest 
+                rem sh docker rmi $REPO_RESULT_NODEJS:latest 
             }
         } 
     }
