@@ -313,6 +313,10 @@ yarn-error.log
 node_modules
 /dist
 
+# local build files
+result/src/result-dotnet/Result/obj/
+worker/src/worker-net/Worker/obj/
+
 # local env files
 .env.local
 .env.*.local
