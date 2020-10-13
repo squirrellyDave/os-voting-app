@@ -1,0 +1,8 @@
+FROM jenkins
+USER root
+RUN curl -fsSL --create-dirs --output /usr/local/bin/docker \
+        "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}" \
+ && chmod +x /usr/local/bin/docker
+COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
+
+
