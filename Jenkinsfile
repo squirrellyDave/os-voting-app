@@ -1,7 +1,7 @@
 pipeline { 
     environment { 
-        registry = "bl00na/os-voting-app-vote-python" 
-        registryCredential = 'dockerhub_credentials' 
+        registryVotePython = "bl00na/os-voting-app-vote-python" 
+        registryCredentials = 'dockerhub_credentials' 
         dockerImageVotePython = '' 
     }
     agent any 
@@ -21,7 +21,7 @@ pipeline {
         stage('Deploying images') { 
             steps { 
                 script { 
-                    docker.withRegistry( '', registryCredential ) { 
+                    docker.withRegistry('', registryCredentials) { 
                         dockerImageVotePython.push() 
                     }
                 } 
@@ -29,7 +29,7 @@ pipeline {
         } 
         stage('Cleaning up') { 
             steps { 
-                sh "docker rmi $registry" 
+                sh "docker rmi $registryVotePython" 
             }
         } 
     }
