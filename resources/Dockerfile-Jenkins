@@ -1,8 +1,6 @@
-FROM jenkins
+# FROM jenkins
+FROM image-registry.openshift-image-registry.svc:5000/openshift/jenkins@sha256:df6bb2318ee641386b6e2600e94d0da9c32aeb23e6aa60516003fb18cf9446e9
 USER root
-RUN curl -fsSL --create-dirs --output /usr/local/bin/docker \
-        "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}" \
- && chmod +x /usr/local/bin/docker
+RUN curl -fsSL --create-dirs --output /usr/local/bin/docker "https://get.docker.com/builds/$(uname -s)/$(uname -m)/docker-${DOCKER_VERSION}" \
+RUN chmod +x /usr/local/bin/docker
 COPY executors.groovy /usr/share/jenkins/ref/init.groovy.d/executors.groovy
-
-

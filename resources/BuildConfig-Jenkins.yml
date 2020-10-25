@@ -1,0 +1,13 @@
+kind: "BuildConfig"
+apiVersion: "build.openshift.io/v1"
+metadata:
+  name: "voting-app-pipeline"
+spec:
+  source:
+    contextDir: jenkins
+    git:
+      uri: "https://github.com/bl00na/os-voting-app.git"
+      ref: "master"
+  strategy:
+    jenkinsPipelineStrategy:
+    type: JenkinsPipeline
