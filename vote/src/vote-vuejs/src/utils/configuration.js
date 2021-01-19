@@ -1,6 +1,6 @@
 /* 
-  Helper class to automatically handle development and production environments variables for 
-  single page applications (SPAs) with auto replacement of that variables on container instantiation
+  Helper class to automatically handle development and production environments variables for single page applications (SPAs)
+  and client side scripts with auto replacement of that variables on container instantiation to dynamically set it's values
   
   Usage example 
     -> In the configuration.js file, inside the CONFIG() code block use:        
