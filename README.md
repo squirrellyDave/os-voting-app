@@ -7,8 +7,13 @@ This works best in conjunction with the "OpenShift for the Absolute Beginner" Co
 ## Instructions
 
 1. Set up Redis Ephemeral Cache in Openshift
-    1. In Openshift, add a new Application by searching for "Redis Ephemeral Template", select the result from the openshift/origin repository on Github
-    2. Redis Connection Password: `redis_password`
+    1. search for "Redis Ephemeral Template", select the result from the openshift/origin repository on Github
+        1. Copy the contents of the template to your clipboard.
+    2. In Openshift, add a new Application using the "Add to Project" Menu and selecting "Import from YAML/JSON"
+        1. Paste the contents of the GitHub template into the text box.
+    3. Save, but uncheck the "Process Template" checkbox, and check the "Save Template" checkbox.  This will create an icon in the catalog, which can be seen after refreshing the page.
+    4. Select the "Redis (Ephemeral)" app from the catalog.
+    5. Redis Connection Password: `redis_password`
 
 2. Set up the Python Vote app
     1. In Openshift, add a new Application by searching the Catalog for "Python"
