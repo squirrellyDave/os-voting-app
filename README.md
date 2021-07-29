@@ -1,23 +1,25 @@
-Example Voting App
+# Example Voting App
 ==================
 
-Getting started
----------------
+## Note
+
+*This works best in conjunction with the "OpenShift for the Absolute Beginner" Course in Udemy.  The course is old, and some information is outdated.  This Repo and the following instructions should be used during Section 7, lesson 34 "Demo - Deploy Example Voting application on OpenShift" Follow the path of the video, and reference the longform instructions here* 
+
+## Instructions
 
 1. Set up Redis Ephemeral Cache in Openshift
-    a. In Openshift, add a new Application by searching the Catalog for "Redis Ephemeral" and use the Template
-    b. Redis Connection Password: redis_password
+    1. In Openshift, add a new Application by searching for "Redis Ephemeral Template", select the result from the openshift/origin repository on Github
+    2. Redis Connection Password: `redis_password`
 
 2. Set up the Python Vote app
-    a. In Openshift, add a new Application by searching the Catalog for "Python" and use the Builder Image
-    b. Git Repo URL: Inser your github repository url in wich the source code for the app is stored
-    c. Select "Advanced Git Options"
-        c1. Git Reference: master
-        c2. Context Dir: /vote
-    d. Application Name: Vote-Application
-    e. Name: vote-python
-    f. Resource type to generate: Deployment
-    g. Create a route to the application: Yes
+    1. In Openshift, add a new Application by searching the Catalog for "Python" and use the Builder Image
+    2. The app name should be `vote`
+    3. Git Repo URL: Insert your GitHub repository URL in which the source code for the app is stored
+    4. Select "Advanced Git Options"
+        1. Git Reference: master
+        2. Context Dir: `/vote/src/vote-python`
+    5. Resource type to generate: Deployment
+    6. Create a route to the application: Yes
 
 3. Set up the PostgreSQL database
     a. In Openshift, add a new Application by searching the Catalog for "Postgre" and use the Template
@@ -30,7 +32,7 @@ Getting started
 
 4. Set up the Nodejs Result app
     a. In Openshift, add a new Application by selecting "From Dockerfile" as the method of choice
-    b. Git Repo URL: Inser your github repository url in wich the source code for the app is stored
+    b. Git Repo URL: Inser your github repository url in which the source code for the app is stored
     c. Select "Advanced Git Options"
         c1. Git Reference: master
         c2. Context Dir: /result
@@ -41,7 +43,7 @@ Getting started
 
 5. Set up the Java Worker app
     a. In Openshift, add a new Application by selecting "From Dockerfile" as the method of choice
-    b. Git Repo URL: Inser your github repository url in wich the source code for the app is stored
+    b. Git Repo URL: Inser your github repository url in which the source code for the app is stored
     c. Select "Advanced Git Options"
         c1. Git Reference: master
         c2. Context Dir: /worker
@@ -61,10 +63,7 @@ Architecture
 * A Postgres database backed by a volume
 * A Node.js webapp which shows the results of the voting in real time
 
-
 Note
 ----
 
-The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.
-
-testing git integration once more
+The voting application only accepts one vote per client. It does not register votes if a vote has already been submitted from a client.  You can use incognito/privte browser tabs to register multiple votes.
